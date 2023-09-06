@@ -1,0 +1,21 @@
+# Use a lightweight base image
+#FROM alpine:latest
+FROM ubuntu:18.04
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the shell script into the container
+COPY print_time.sh .
+
+COPY ./print_time.sh /app
+
+RUN pwd
+RUN ls
+
+# Make the shell script executable
+RUN chmod +x print_time.sh
+
+# Run the shell script
+CMD ["sh","/app/print_time.sh"]
+

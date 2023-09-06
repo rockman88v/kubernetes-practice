@@ -1,0 +1,14 @@
+# Use a lightweight base image
+FROM alpine:latest
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the shell script into the container
+COPY tail_log.sh .
+
+# Make the shell script executable
+RUN chmod +x tail_log.sh
+
+# Run the shell script
+CMD ["sh","/app/tail_log.sh"]

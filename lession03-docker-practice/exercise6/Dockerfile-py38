@@ -1,0 +1,8 @@
+
+FROM ubuntu:18.04
+
+# Argument PyVersion with default value 2.7
+ARG PyVersion=3.8
+
+RUN apt update && apt upgrade -y
+RUN apt install -y python${PyVersion}

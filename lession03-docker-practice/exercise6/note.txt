@@ -1,0 +1,21 @@
+#case1
+docker build -t py27:latest -f Dockerfile-py27 .
+docker run py27:latest python2.7 --version
+
+#case2
+#in case ARG was updated with PyVersion=3.8
+docker build -t py38:latest -f Dockerfile-py38 .
+
+#in case we set ARG at build time
+docker build --build-arg PyVersion=3.8 -t py38 -f Dockerfile-py38 .
+
+docker run py38:latest python3.8 --version
+
+#case3
+#in case ARG was updated with PyVersion=3.8
+docker build -t py38-cmd:latest -f Dockerfile-py38-cmd .
+
+#in case we set ARG at build time
+docker build --build-arg PyVersion=3.8 -t py38-cmd -f Dockerfile-py38 .
+
+docker run py38-cmd:latest

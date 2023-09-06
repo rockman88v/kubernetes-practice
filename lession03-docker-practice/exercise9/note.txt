@@ -1,0 +1,6 @@
+docker build -t time-printer -f Dockerfile1 .
+docker build -t log-tailer -f Dockerfile2 .
+#create volume
+docker volumes create mydata
+docker run --name printer -d -v mydata:/mydata time-printer
+docker run --name tailer -d -v mydata:/mydata log-tailer
